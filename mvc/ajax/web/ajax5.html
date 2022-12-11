@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示学员列表</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){
+    document.getElementById("btn").onclick = function (){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function (){
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            document.getElementById("stutbody").innerHTML = this.responseText
+          }else {
+            alert(this.status)
+          }
+        }
+      }
+      xhr.open("GET","/ajax/ajaxrequest5",true)
+      xhr.send()
+    }
+  }
+</script>
+<input type="button" value="显示学员列表" id="btn">
+<table width="50%" border="1px">
+  <tr>
+    <th>序号</th>
+    <th>姓名</th>
+    <th>年龄</th>
+    <th>住址</th>
+  </tr>
+  <tbody id="stutbody">
+  <tr>
+    <td>1</td>
+    <td>张三</td>
+    <td>20</td>
+    <td>北京大兴</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

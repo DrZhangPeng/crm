@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post 请求</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){
+    document.getElementById("btn").onclick = function (){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function (){
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            document.getElementById("mydiv").innerHTML = this.responseText
+          }else {
+            alert(this.status)
+          }
+        }
+      }
+
+      xhr.open("POST","/ajax/ajaxrequest3",true)
+
+      xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+      var username = document.getElementById("username").value
+      var password = document.getElementById("password").value
+
+      xhr.send("username="+username+"&password="+password)
+    }
+  }
+</script>
+
+用户名<input type="text" id="username"><br>
+密码<input type="password" id="password"><br>
+
+<input type="button" value="点击" id="btn">
+<div id="mydiv"></div>
+
+</body>
+</html>

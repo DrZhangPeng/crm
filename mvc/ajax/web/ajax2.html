@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax get 请求</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){
+    document.getElementById("btn").onclick = function (){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function (){
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            document.getElementById("myspan").innerHTML = this.responseText;
+          }else {
+            alert(this.status)
+          }
+        }
+      }
+      xhr.open("GET","/ajax/ajaxrequest2",true)
+      xhr.send()
+    }
+  }
+</script>
+<input type="button" value="点击此处" id="btn">
+<span id="myspan"></span>
+</body>
+</html>

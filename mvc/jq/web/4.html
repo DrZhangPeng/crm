@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+<script type="text/javascript">
+  $(function (){
+    $("#btn").click(function (){
+      var val = $(":text").val();
+      for (let i = 0; i < val.length; i++) {
+        alert(val[i].value)
+      }
+    })
+  })
+</script>
+<input type="text" value="刘备"><br>
+<input type="text" value="关羽"><br>
+<input type="text" value="张飞"><br>
+<input type="button" value="获取所有文本框的值" id="btn">
+</body>
+</html>

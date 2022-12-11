@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送ajax请求</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){
+    document.getElementById("btn").onclick = function (){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+          if (this.readyState == 4) {
+              if (this.status == 200) {
+                  var jsonObj = JSON.parse(this.responseText);
+                  document.getElementById("mydiv").innerHTML = jsonObj.username
+              }
+          }
+      }
+          xhr.open("POST", "/ajax/ajaxrequest10", true)
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+          var username = document.getElementById("username").value;
+          xhr.send(username)
+    }
+  }
+</script>
+<input type="button" value="发送" id="btn">
+用户名：<input type="text" id="username">
+<div id="mydiv"></div>
+</body>
+</html>

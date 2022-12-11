@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script type="text/javascript">
+    function sayHello(){
+        alert("hello")
+    }
+</script>
+<input type="button" value="点击" onclick="sayHello()">
+<input type="button" value="点击2" id="hellobtn">
+
+<script type="text/javascript">
+    window.onload = function (){
+        document.getElementById("hellobtn").onclick = function (){
+            alert("hello javascript")
+        }
+    }
+</script>
+</body>
+</html>
